@@ -16,3 +16,15 @@ ADD COLUMN cli_cpf CHAR(15) NOT NULL DEFAULT'000.000.000-00'
 
 ALTER TABLE cli_clientes 
 ADD COLUMN cli_cpf2 CHAR(15) NOT NULL DEFAULT'000.000.000-00' AFTER cli_sexo
+
+-- Adicionando CONSTRAINT em varios campos
+ALTER TABLE cli_clientes3
+ADD CONSTRAINT UNIQ_FIELD UNIQUE(cli_cpf, cli_nome)
+
+-- apagando CONSTRAINT
+ALTER TABLE cli_clientes3 
+DROP CONSTRAINT UNIQ_FIELD
+
+-- apagando Constraint INDEX
+ALTER TABLE cli_clientes3 
+DROP INDEX UNIQ_FIELD
